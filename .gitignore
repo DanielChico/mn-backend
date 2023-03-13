@@ -1,0 +1,7 @@
+venv/
+.env
+.idea/
+*.pyc
+**/__pycache__/
+.vscode/
+*.db
