@@ -12,14 +12,14 @@ def newton_raphson(f: Function, a: float, b: float, error: float):
     while True:
         xi = xa - (f.get_y(xa)/derivative.subs(x, xa))
         if first_iter:
-            real_error = (b - a) / 2
+            actual_error = (b - a) / 2
             first_iter = False
         else:
-            real_error = abs(xi - xa)
-        result.append([a, b, xi, real_error])
-        print(f"{a}   {b}   {xi}   {real_error}")
+            actual_error = abs(xi - xa)
+        result.append([a, b, xi, actual_error])
+        print(f"{a}   {b}   {xi}   {actual_error}")
         xa = xi
-        if real_error < error:
+        if actual_error < error:
             break
     to_string(result)
     return {

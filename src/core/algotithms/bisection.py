@@ -6,16 +6,16 @@ def bisection(f: Function, a: float, b: float, error: float):
     result: list[list] = []
     while True:
         x = (a + b) / 2.0
-        real_error = (b - a) / 2
-        result.append([a, b, x, real_error])
-        print(f"{a}   {b}   {x}   {real_error}")
+        actual_error = (b - a) / 2
+        result.append([a, b, x, actual_error])
+        print(f"{a}   {b}   {x}   {actual_error}")
         if f.get_y(x) == 0:
             break
         if f.get_y(a) * f.get_y(x) < 0:
             b = x
         else:
             a = x
-        if real_error < error:
+        if actual_error < error:
             break
     to_string(result)
     return {
